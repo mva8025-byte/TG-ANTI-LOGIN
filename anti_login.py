@@ -1,14 +1,12 @@
-from telethon import TelegramClient , events
-import config
+import os
+from telethon import TelegramClient, events
 
-client = TelegramClient(session='TG_anti_login',api_id=config.API_ID,api_hash=config.API_HASH)
+api_id = int(os.environ.get('API_ID'))
+api_hash = os.environ.get('API_HASH')
+phone = os.environ.get('PHONE')
 
-import logging
-logging.basicConfig(
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-    level=logging.INFO
-)
-LOGGER = logging.getLogger(__name__)
+client = TelegramClient('session_bot', api_id, api_hash)
+
 
 
 
